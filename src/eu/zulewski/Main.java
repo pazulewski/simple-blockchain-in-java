@@ -7,12 +7,13 @@ public class Main {
     public static ArrayList<Block> blockchain = new ArrayList<>();
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        blockchain.add(new Block("0", "We did it!"));
-        blockchain.add(new Block(blockchain.get(blockchain.size() - 1).hash, "My name is Paul"));
-        blockchain.add(new Block(blockchain.get(blockchain.size() - 1).hash, "Third Block"));
+        blockchain.add(new Block("0", "We did it!", 40));
+        blockchain.add(new Block(blockchain.get(blockchain.size() - 1).hash, "My name is Paul", 25));
+        blockchain.add(new Block(blockchain.get(blockchain.size() - 1).hash, "Third Block", 180));
 
-        System.out.println(isChainValid());
-
+        for (Block block : blockchain) {
+            block.mineBlock();
+        }
     }
 
     private static boolean isChainValid() throws NoSuchAlgorithmException {
