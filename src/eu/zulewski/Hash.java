@@ -25,7 +25,7 @@ public class Hash {
     }
 
     private static byte[] getByteArray(Block block) {
-        String str = block.data + block.hash + block.timestamp;
+        String str = block.data + block.previousHash + block.timestamp;
         return str.getBytes(StandardCharsets.UTF_8);
     }
 }
